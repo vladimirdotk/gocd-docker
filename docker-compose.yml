@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+
+  gocd:
+    image: gocd/gocd-server:v19.7.0
+    ports:
+      - "8153:8153"
+      - "8154:8154"
+  
+  gocd-agent:
+    image: gocd/gocd-agent-ubuntu-18.04:v19.7.0
+    environment:
+    - GO_SERVER_URL=${GO_SERVER_URL}
